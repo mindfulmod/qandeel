@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qandeel · From Alif to Ayah</title>
+<meta name="description" content="Qandeel builds gentle, research-informed Arabic learning, from a child's first letter to an adult understanding the Qur'an. Our first product is Letter Garden.">
+<meta property="og:title" content="Qandeel · From Alif to Ayah">
+<meta property="og:description" content="Gentle Arabic learning, from a child's first letter to understanding the Qur'an. Meet Letter Garden.">
+<meta property="og:image" content="https://qandeel.app/img/og.jpg">
+<meta property="og:url" content="https://qandeel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#4a3620; --ink-soft:#7a6248; --ink-faint:#a89478;
+  --paper:#fffaf0; --paper-hi:#fffdf7; --paper-lo:#f4ecdb; --line:#e5dcc8;
+  --gold:#f3c955; --gold-hi:#ffe49a; --gold-lo:#c69434;
+  --warm:#e8743c; --warm-lo:#b0501f;
+  --leaf:#7fce54; --leaf-lo:#4e9677; --leaf-dk:#2f5c46;
+  --sky:#ccfbef; --sky-mid:#96ecff; --coral:#ffa798;
+  --r:22px; --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.6 Nunito,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--warm-lo)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:650;line-height:1.12;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.6rem,6vw,4.4rem)}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+h3{font-size:1.3rem}
+p{margin:0 0 1em}
+.ar{font-family:Amiri,serif;direction:rtl}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+section{padding:88px 0}
+.eyebrow{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--leaf-lo);margin-bottom:.8em}
+.lede{font-size:1.2rem;color:var(--ink-soft);max-width:38em}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:650 1.35rem Fraunces,serif}
+.brand img{width:36px;height:36px}
+.brand .ar{font-size:1.25rem;color:var(--ink-soft);font-weight:400}
+.nav nav{display:flex;gap:26px;align-items:center}
+.nav nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.98rem}
+.nav nav a:hover{color:var(--warm-lo)}
+.nav nav a.btn-primary,.nav nav a.btn-primary:hover{color:#fffdf7}
+@media (max-width:760px){.nav nav a:not(.btn){display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.8em 1.35em;border-radius:999px;font-weight:700;text-decoration:none;border:2.5px solid var(--ink);transition:transform .15s ease, box-shadow .15s ease;font-size:1rem}
+.btn-primary{background:var(--warm);color:#fffdf7;box-shadow:0 4px 0 var(--ink)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.btn-ghost{background:var(--paper-hi);color:var(--ink);box-shadow:0 4px 0 var(--line)}
+.btn-ghost:hover{transform:translateY(-2px)}
+.nav .btn{padding:.5em 1.05em;font-size:.92rem;box-shadow:0 3px 0 var(--ink)}
+
+/* hero */
+.hero{padding:64px 0 40px;background:radial-gradient(1200px 520px at 80% 0%, #ffe9d6 0%, transparent 60%),linear-gradient(180deg,var(--paper) 0%,var(--paper) 70%,var(--sky) 100%);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero h1 .ar{display:block;text-align:left;font-size:.62em;color:var(--leaf-lo);margin-top:.25em;font-weight:700;letter-spacing:0}
+.hero .lede{margin-bottom:1.6em}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero-art{position:relative}
+.device{border:10px solid var(--ink);border-radius:30px;overflow:hidden;background:var(--ink);box-shadow:0 22px 50px -18px rgba(74,54,32,.45)}
+.device img{aspect-ratio:1180/820;object-fit:cover;width:100%}
+.float{position:absolute;width:96px;height:96px;filter:drop-shadow(0 8px 10px rgba(74,54,32,.18));animation:bob 5s ease-in-out infinite}
+.float.f1{left:-30px;bottom:-26px}
+.float.f2{right:-22px;top:-34px;animation-delay:-2.2s}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-2deg)}}
+@media (prefers-reduced-motion:reduce){.float{animation:none}html{scroll-behavior:auto}}
+
+/* friends strip */
+.friends{display:grid;grid-template-columns:repeat(14,1fr);gap:6px;margin-top:56px}
+.friends img{width:100%;height:auto}
+@media (max-width:760px){.friends{grid-template-columns:repeat(7,1fr)}}
+
+/* product */
+.product{background:var(--paper-hi);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.tag{display:inline-block;background:var(--sky);border:2px solid var(--leaf-lo);color:var(--leaf-dk);font-weight:700;font-size:.82rem;border-radius:999px;padding:.2em .8em;margin-right:.4em}
+.shot{border-radius:var(--r);border:3px solid var(--ink);overflow:hidden;box-shadow:0 6px 0 var(--line)}
+.shot img{aspect-ratio:1180/820;object-fit:cover;width:100%}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:56px}
+@media (max-width:760px){.gallery{grid-template-columns:1fr}}
+.card{background:var(--paper);border:2px solid var(--line);border-radius:var(--r);padding:14px 14px 20px}
+.card .shot{margin-bottom:16px;box-shadow:none;border-width:2.5px}
+.card h3{margin-bottom:.3em}
+.card p{color:var(--ink-soft);font-size:1rem;margin:0}
+
+/* approach */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:40px}
+@media (max-width:900px){.pillars{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.pillars{grid-template-columns:1fr}}
+.pillar{background:var(--paper-hi);border:2px solid var(--line);border-radius:var(--r);padding:22px}
+.pillar .num{font:650 1rem Fraunces,serif;color:#fffdf7;background:var(--leaf-lo);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;margin-bottom:12px}
+.pillar p{font-size:.98rem;color:var(--ink-soft);margin:0}
+.leave{margin-top:44px;background:var(--gold-hi);border:2.5px solid var(--gold-lo);border-radius:var(--r);padding:26px 28px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+@media (max-width:700px){.leave{grid-template-columns:1fr}}
+.leave h3{margin:0}
+.leave ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.leave li{background:var(--paper-hi);border:2px solid var(--gold-lo);border-radius:999px;padding:.3em .9em;font-weight:600;font-size:.95rem}
+
+/* path */
+.path{background:linear-gradient(180deg,var(--sky) 0%,#e9fbf5 100%)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;position:relative}
+@media (max-width:900px){.steps{grid-template-columns:1fr}}
+.step{background:var(--paper-hi);border:3px solid var(--ink);border-radius:var(--r);padding:26px;box-shadow:0 5px 0 var(--leaf-lo)}
+.step .when{font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--warm-lo)}
+.step .ar{font-size:1.5rem;color:var(--leaf-lo);margin:.2em 0}
+.step p{font-size:1rem;color:var(--ink-soft)}
+.step a{font-weight:700}
+
+/* grown-ups */
+.privacy li{margin-bottom:.5em}
+
+/* about */
+.about{text-align:center}
+.about .lantern{width:84px;height:84px;margin:0 auto 18px}
+.about p{max-width:40em;margin-left:auto;margin-right:auto}
+.about .lede{margin-left:auto;margin-right:auto}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper)}
+.contact h2{color:var(--paper)}
+.contact p{color:var(--line)}
+.contact .mail{font:650 clamp(1.4rem,3.4vw,2.2rem) Fraunces,serif;color:var(--gold);text-decoration:none;border-bottom:3px solid var(--gold-lo)}
+footer{background:var(--ink);color:var(--ink-faint);font-size:.9rem;padding:22px 0 34px;border-top:1px solid #5d4730}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Qandeel home"><img src="img/logo.svg" alt=""><span>Qandeel</span><span class="ar" lang="ar">قنديل</span></a>
+    <nav aria-label="Main">
+      <a href="#letter-garden">Letter Garden</a>
+      <a href="#approach">Approach</a>
+      <a href="#path">The path</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary" href="https://mindfulmod.github.io/miftah/letters.html">Play free</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Arabic learning for Muslim families</div>
+        <h1>From Alif to Ayah.<span class="ar" lang="ar">من الألف إلى الآية</span></h1>
+        <p class="lede">Qandeel builds gentle, carefully designed tools for learning Arabic, from a child's very first letter to an adult understanding the words of the Qur'an. We begin with <strong>Letter Garden</strong>, for ages 3–7.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://mindfulmod.github.io/miftah/letters.html">Play Letter Garden, free →</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="device"><img src="img/shot-home.webp" alt="Letter Garden's home map: a winding garden path past letter stops, with the child's pet on the trail" width="1600" height="1112"></div>
+        <img class="float f1" src="img/friend-1.svg" alt="">
+        <img class="float f2" src="img/friend-25.svg" alt="">
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="friends" aria-label="The 28 Letter Friends">
+        <img src="img/friend-0.svg" alt="Alif as a rabbit"><img src="img/friend-1.svg" alt="Ba as a duck"><img src="img/friend-2.svg" alt="Ta as a crocodile"><img src="img/friend-3.svg" alt="Tha as a fox"><img src="img/friend-4.svg" alt="Jeem as a camel"><img src="img/friend-5.svg" alt="Ha as a horse"><img src="img/friend-6.svg" alt="Kha as a sheep"><img src="img/friend-7.svg" alt="Dal as a bear"><img src="img/friend-8.svg" alt="Dhal as corn"><img src="img/friend-9.svg" alt="Ra as a pomegranate"><img src="img/friend-10.svg" alt="Zay as a giraffe"><img src="img/friend-11.svg" alt="Seen as a fish"><img src="img/friend-12.svg" alt="Sheen as the sun"><img src="img/friend-13.svg" alt="Sad as a seashell"><img src="img/friend-14.svg" alt="Dad as a frog"><img src="img/friend-15.svg" alt="Taa as a peacock"><img src="img/friend-16.svg" alt="Dhaa as an envelope"><img src="img/friend-17.svg" alt="Ayn as grapes"><img src="img/friend-18.svg" alt="Ghayn as a gazelle"><img src="img/friend-19.svg" alt="Fa as an elephant"><img src="img/friend-20.svg" alt="Qaf as a cat"><img src="img/friend-21.svg" alt="Kaf as a book"><img src="img/friend-22.svg" alt="Lam as a lemon"><img src="img/friend-23.svg" alt="Meem as a key"><img src="img/friend-24.svg" alt="Noon as a bee"><img src="img/friend-25.svg" alt="Haa as a hoopoe"><img src="img/friend-26.svg" alt="Waw as a rose"><img src="img/friend-27.svg" alt="Ya as a dove">
+      </div>
+    </div>
+  </section>
+
+  <section class="product" id="letter-garden">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="eyebrow">Our first product</div>
+          <h2>Letter Garden: where children make friends with the Arabic letters</h2>
+          <p class="lede">Each of the 28 letters is a character whose shape is drawn into its picture: the Ba is a duck, the Noon a bee. Children meet them, trace them in sand, find them in picture books, and watch their garden grow as the letters settle in.</p>
+          <p><span class="tag">Ages 3–7</span><span class="tag">Phone &amp; tablet</span><span class="tag">Works offline</span></p>
+        </div>
+        <div class="shot"><img src="img/shot-friendsgarden.webp" alt="The Friends' Garden: all 28 Letter Friends together" loading="lazy" width="1600" height="1112"></div>
+      </div>
+
+      <div class="gallery">
+        <div class="card">
+          <div class="shot"><img src="img/shot-sand.webp" alt="The Sand Table: tracing alif in sand with a start dot and arrow" loading="lazy" width="1400" height="973"></div>
+          <h3>The Sand Table</h3>
+          <p>Children write each letter with their finger, stroke by stroke. Guides fade as the hand learns the shape.</p>
+        </div>
+        <div class="card">
+          <div class="shot"><img src="img/shot-livingbook.webp" alt="A Living Book page: a duck, with the Arabic sentence highlighted word by word" loading="lazy" width="1400" height="973"></div>
+          <h3>Living Books</h3>
+          <p>Short picture books written only with letters the child already knows, read aloud with each word lighting up.</p>
+        </div>
+        <div class="card">
+          <div class="shot"><img src="img/shot-bookcorner.webp" alt="The Book Corner: a shelf of picture-book games" loading="lazy" width="1400" height="973"></div>
+          <h3>The Book Corner</h3>
+          <p>Games borrowed from the best picture books: lift-the-flap, a busy market to search, a hoopoe's journey, sound sorting.</p>
+        </div>
+        <div class="card">
+          <div class="shot"><img src="img/shot-friendbook.webp" alt="The Letter Friends book: alif as a rabbit with the word arnab" loading="lazy" width="1400" height="973"></div>
+          <h3>Letter, sound, picture</h3>
+          <p>Every friend links a letter's name, its sound and a real Arabic word. A rabbit (أرنب) for Alif, a duck (بطة) for Ba.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="eyebrow">Our approach</div>
+      <h2>Built the way young children actually learn</h2>
+      <p class="lede">Letter Garden draws on well-established findings about how children learn to read, applied with care to Arabic script.</p>
+      <div class="pillars">
+        <div class="pillar"><div class="num">1</div><h3>Pictures that hold the shape</h3><p>When a letter is drawn into a familiar picture, children connect the shape to its sound faster than with plain flashcards.</p></div>
+        <div class="pillar"><div class="num">2</div><h3>Hands, eyes and ears</h3><p>Tracing, hearing and finding a letter all build the same memory, so each letter is met through touch, sound and sight.</p></div>
+        <div class="pillar"><div class="num">3</div><h3>Reading real words early</h3><p>Decodable books use only the letters a child has learned, so the first reading experience is success, not guessing.</p></div>
+        <div class="pillar"><div class="num">4</div><h3>Gentle, spaced review</h3><p>A quiet model of each letter's strength brings shaky letters back at the right time. Nothing is ever "failed".</p></div>
+      </div>
+      <div class="leave">
+        <h3>What we leave out</h3>
+        <ul>
+          <li>No ads</li><li>No failing</li><li>No loot boxes</li><li>No streak guilt</li><li>No timers by default</li><li>No background music loops</li><li>No accounts for children</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="path" id="path">
+    <div class="wrap">
+      <div class="eyebrow">The path</div>
+      <h2>One lantern, from the first letter to the Qur'an</h2>
+      <p class="lede">Letter Garden is the first step of a single learning path. The same gentle method carries a learner from recognising letters to reading and understanding Quranic Arabic.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="when">Live now · Ages 3–7</div>
+          <h3>Letter Garden</h3>
+          <div class="ar" lang="ar">حديقة الحروف</div>
+          <p>The 28 letters, their vowels and first words, through play, tracing and picture books.</p>
+          <a href="https://mindfulmod.github.io/miftah/letters.html">Play free →</a>
+        </div>
+        <div class="step">
+          <div class="when">In development · Teens &amp; adults</div>
+          <h3>Quranic Arabic</h3>
+          <div class="ar" lang="ar">فهم القرآن</div>
+          <p>Learn the most frequent words of the Qur'an in their real verses, so that a few hundred words open up much of the text.</p>
+        </div>
+        <div class="step">
+          <div class="when">Free, always</div>
+          <h3>Reading companions</h3>
+          <div class="ar" lang="ar">رفقاء القراءة</div>
+          <p>Calm, interactive companions for classic works of Islamic reflection, offered freely as part of our mission.</p>
+          <a href="https://mindfulmod.github.io/books/timeless-seeds.html">Timeless Seeds →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="grown-ups">
+    <div class="wrap split">
+      <div class="shot"><img src="img/shot-grownup.webp" alt="The grown-up page: a calm summary of which letters are strong, growing or need love" loading="lazy" width="1400" height="973"></div>
+      <div>
+        <div class="eyebrow">For parents and teachers</div>
+        <h2>A quiet window for grown-ups</h2>
+        <p>Behind a press-and-hold corner, parents see which letters are strong, which are still growing, and three to practise together, with no app needed.</p>
+        <ul class="privacy">
+          <li><strong>Progress stays on the device.</strong> No child accounts, names or photos.</li>
+          <li><strong>Siblings each keep their own garden</strong> on a shared device.</li>
+          <li><strong>Gentle mode and Little Sprout</strong> for the youngest and most sensitive learners.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <img class="lantern" src="img/logo.svg" alt="">
+      <div class="eyebrow">Why "Qandeel"</div>
+      <h2><span class="ar" lang="ar">قنديل</span> · a lantern</h2>
+      <p class="lede">Qandeel is the Arabic word for a hanging lantern, a cousin of the English word "candle". A lantern doesn't walk the path for you; it lets you see the next step.</p>
+      <p>Qandeel was started by a parent and software builder who wanted their own children to love the Arabic letters, and found that most apps were loud, ad-filled drills. We are building the opposite: calm, beautiful and careful with both children and the sacred text.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold)">Contact</div>
+      <h2>Schools, Quran centres, parents and partners: we'd love to hear from you.</h2>
+      <p>For pilots, partnerships or feedback, write to</p>
+      <p><a class="mail" href="mailto:hello@qandeel.app">hello@qandeel.app</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Qandeel · قنديل</span><span>From Alif to Ayah</span></div>
+</footer>
+</body>
+</html>
