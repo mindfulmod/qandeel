@@ -36,15 +36,22 @@
     </svg>`;
   }
 
+  // 2026-10-18 (construction detail): the catch game's framing trees are
+  // built like the DetailKit tree — an inked barked trunk with root flare,
+  // forked branches, a clumped lit canopy with leaf ticks, and apples.
   function orchardTree(side) {
+    const C = [[75, 58, 44], [36, 76, 32], [114, 74, 32], [52, 30, 30], [100, 28, 30], [75, 98, 28], [128, 46, 22], [22, 46, 22]];
+    const canopy = C.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r + 4}" fill="#4a3620"/>`).join('') + C.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#4e9677"/>`).join('') + C.map(([x, y, r]) => `<circle cx="${x - r * 0.14}" cy="${y - r * 0.16}" r="${r * 0.84}" fill="#7fce54"/>`).join('') + C.filter(([, y]) => y < 60).map(([x, y, r]) => `<circle cx="${x - r * 0.3}" cy="${y - r * 0.32}" r="${r * 0.4}" fill="#b7e779"/>`).join('') + C.map(([x, y, r]) => `<path d="M${x + r * 0.2} ${y + r * 0.25}q4 -6 10 -4" fill="none" stroke="#4e9677" stroke-width="3" stroke-linecap="round"/>`).join('');
+    // Blossoms, not apples: decorative fruit would compete with the golden
+    // letter apples the child is meant to tap.
+    const apples = [[50, 70], [96, 52], [80, 100], [118, 86], [34, 44]].map(([x, y]) => `${[0, 72, 144, 216, 288].map((a) => `<circle cx="${x}" cy="${y - 3.5}" r="3.5" fill="#fffaf0" opacity=".9" transform="rotate(${a} ${x} ${y})"/>`).join('')}<circle cx="${x}" cy="${y}" r="2.4" fill="#ffa798"/>`).join('');
     return prop('orchard-tree '+side, `<ellipse cx="70" cy="364" rx="43" ry="10" fill="#2f5c46" opacity=".2"/>
-      <path d="M49 78Q43 218 39 348L28 362Q66 371 94 358L82 346Q71 204 83 80Z" fill="#a89478"/>
-      <path d="M53 79Q50 218 48 347L43 357L61 358Q58 200 68 80Z" fill="#e5dcc8"/>
-      <path d="M79 78Q71 211 82 346L94 358L71 361Q68 207 72 78Z" fill="#4a3620" opacity=".5"/>
-      <path d="M0 40Q-10 1 31 9Q63-16 89 9Q144-5 147 40Q182 62 146 84Q154 122 115 123Q95 150 63 129Q15 153 12 116Q-25 111-11 79Q-25 52 0 40Z" fill="#2f5c46"/>
-      <path d="M0 33Q5 4 33 17Q66-4 90 18Q133 6 139 40Q168 67 137 82Q139 108 112 108Q82 131 60 111Q25 131 19 102Q-15 98-4 74Q-17 50 0 33Z" fill="#4e9677"/>
-      <path d="M5 34Q19 15 35 25Q64 9 86 29Q114 16 131 37Q100 28 87 43Q63 22 37 43Q22 33 5 48Z" fill="#b7e779"/>
-      <path d="M34 354Q14 349 9 330Q36 328 43 347M83 352Q97 330 118 338Q113 356 83 360" fill="#4e9677"/>`, '0 0 150 380');
+      <path d="M48 110Q43 230 40 346Q30 352 24 362H98Q90 352 82 346Q76 230 84 110Z" fill="#c69434" stroke="#4a3620" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M58 140V200M66 230V300M56 320Q52 340 44 352M74 330Q80 344 90 354" fill="none" stroke="#70501b" stroke-width="3" stroke-linecap="round"/>
+      <path d="M54 130L66 128" stroke="#ffe49a" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+      <path d="M62 120Q40 110 28 90M74 116Q100 104 116 86" fill="none" stroke="#4a3620" stroke-width="8" stroke-linecap="round"/><path d="M62 120Q40 110 28 90M74 116Q100 104 116 86" fill="none" stroke="#c69434" stroke-width="4" stroke-linecap="round"/>
+      ${canopy}${apples}
+      <path d="M34 354Q14 349 9 330Q36 328 43 347M83 352Q97 330 118 338Q113 356 83 360" fill="#7fce54" stroke="#4a3620" stroke-width="2.4" stroke-linejoin="round"/>`, '0 0 150 380');
   }
 
   function catchOrchard() {
@@ -105,9 +112,10 @@
       <path d="M101 183Q360 164 619 183L678 450Q360 493 42 450Z" fill="#a89478"/>
       <path d="M114 194Q360 180 606 194L656 433Q360 470 64 433Z" fill="#a89478"/>
       <path d="M114 210Q360 196 606 210L649 400Q360 437 71 400Z" fill="#fffaf0"/>
-      <path d="M145 204L105 422M219 196L194 434M291 190L282 442M366 190V444M441 192L449 441M512 198L535 434M579 206L619 422M106 246Q360 231 614 246M94 296Q360 282 626 296M84 348Q360 334 637 348M71 400Q360 389 649 400" fill="none" stroke="#4e9677" stroke-width="8" opacity=".64"/>
+      <g fill="#4e9677">${[[145,204,105,422],[219,196,194,434],[291,190,282,442],[366,190,366,444],[441,192,449,441],[512,198,535,434],[579,206,619,422]].map(([a,b,c,d])=>`<path d="M${a-12} ${b}H${a+12}L${c+12} ${d}H${c-12}Z" opacity=".3"/>`).join('')}${[[106,246,360,231,614],[94,296,360,282,626],[84,348,360,334,637],[71,400,360,389,649]].map(([a,y,m,q,b])=>`<path d="M${a} ${y-12}Q${m} ${q-12} ${b} ${y-12}V${y+12}Q${m} ${q+12} ${a} ${y+12}Z" opacity=".3"/>`).join('')}</g>
       <path d="M104 184Q360 166 616 184M56 451Q360 489 672 451" fill="none" stroke="#fffdf7" stroke-width="3"/>
       <path d="M90 192L43 444M630 194L676 444M52 457Q360 502 667 457" fill="none" stroke="#a89478" stroke-width="2.4" stroke-dasharray="4 8"/>
+      <path d="M101 183L176 178Q150 214 112 244Z" fill="#e5dcc8"/><path d="M176 178Q150 214 112 244" fill="none" stroke="#a89478" stroke-width="3" stroke-linecap="round"/><path d="M118 190L160 187Q144 208 120 226" fill="none" stroke="#c9bda4" stroke-width="2.4" stroke-dasharray="4 8" stroke-linecap="round"/>
     </svg>${prop('picnic-flowers', `<ellipse cx="60" cy="131" rx="45" ry="7" fill="#2f5c46" opacity=".16"/>
       <path d="M43 125V62M78 128V88" fill="none" stroke="#4e9677" stroke-width="4"/>
       <path d="M44 106Q12 106 16 85Q38 85 44 106M78 115Q104 113 108 93Q85 95 78 115" fill="#4e9677"/>
@@ -166,6 +174,7 @@
     // floor shadow and fixed-size writing tools share one ground line.
     return `<svg class="activity-plane" viewBox="0 0 720 540" preserveAspectRatio="none" aria-hidden="true">
       <ellipse cx="360" cy="526" rx="332" ry="12" fill="#2f5c46" opacity=".16"/>
+      ${/* v205: the table base is built: a stretcher bar between the legs and shaped feet. */''}<path d="M128 504H590" stroke="#4a3620" stroke-width="8" stroke-linecap="round"/><path d="M128 504H590" stroke="#a89478" stroke-width="4" stroke-linecap="round"/>
       <path d="M85 396H139L129 520Q107 534 87 522ZM579 396H633L631 522Q611 534 589 520Z" fill="#4a3620"/>
       <path d="M91 404H131L124 517Q108 526 94 517ZM587 404H625L624 517Q609 526 595 517Z" fill="#a89478"/>
       <path d="M94 408H104L107 516L97 513ZM591 408H601L604 516L597 513Z" fill="#c9bda4"/>
@@ -174,6 +183,8 @@
       <path d="M36 15Q360 0 684 15Q703 16 704 37L707 393Q709 415 687 420Q360 456 33 420Q11 415 13 393L16 37Q17 16 36 15Z" fill="#e5dcc8"/>
       <path d="M24 21Q360 6 697 21L698 35Q360 22 23 36Z" fill="#fffaf0"/>
       <path d="M35 55L33 377M683 55L686 377M48 397Q146 411 223 406M497 406Q584 411 673 397" fill="none" stroke="#a89478" stroke-width="2.4"/>
+      ${/* apron: plank seams and a drawer with a gold pull */''}<g stroke="#70501b" stroke-width="2.4" stroke-linecap="round">${[170,560].map(x=>`<path d="M${x} 446V466"/>`).join('')}</g><rect x="290" y="447" width="140" height="22" rx="6" fill="#c9bda4" stroke="#4a3620" stroke-width="3"/><rect x="346" y="453" width="28" height="10" rx="5" fill="#f3c955" stroke="#4a3620" stroke-width="2.4"/>
+      ${[[108,526],[610,526]].map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="26" ry="7" fill="#70501b" stroke="#4a3620" stroke-width="3"/>`).join('')}
     </svg>${pencilPot()}${paperRoll()}`;
   }
   const DRAW = { pairs, catch: catchOrchard, workbench, joinery, parade, picnic, potting };

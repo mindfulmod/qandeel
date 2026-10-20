@@ -4,7 +4,7 @@
 // - Shell (HTML/CSS/JS/fonts): stale-while-revalidate, ignoring ?v= cache-busters.
 // - data/*.json: network-first so rebuilt data lands promptly; cache fallback offline.
 // - Remote recitation audio: deliberately NOT intercepted — see AUDIO_HOSTS below.
-const VERSION = "qandeel-garden-miftah-v108-letter-garden-v35-20261003";
+const VERSION = "qandeel-garden-miftah-v324-letter-garden-v262-20261019";
 const SHELL_CACHE = `shell-${VERSION}`;
 const DATA_CACHE = `data-${VERSION}`;
 
@@ -18,7 +18,10 @@ const SHELL = [
   "src/data/animals.js",
   "src/data/letters.js",
   "src/letters/BookGames.js",
+  "src/letters/CostumeHouse.js",
   "src/letters/DecoratingGarden.js",
+  "src/letters/DetailKit.js",
+  "src/letters/EarsGames.js",
   "src/letters/FriendBook.js",
   "src/letters/FriendFind.js",
   "src/letters/GardenBrain.js",
@@ -50,15 +53,21 @@ const SHELL = [
   "src/letters/LettersVoice.js",
   "src/letters/LettersWorlds.js",
   "src/letters/LivingBooks.js",
+  "src/letters/LookGames.js",
   "src/letters/MiniGames.js",
   "src/letters/PictureWords.js",
   "src/letters/PuzzleGames.js",
   "src/letters/SandTable.js",
   "src/letters/ShadowGames.js",
   "src/letters/SoundLab.js",
+  "src/letters/StickerScenes.js",
   "src/letters/StoryGarden.js",
+  "src/letters/ToyBoxGames.js",
+  "src/letters/VillageArt.js",
   "src/letters/VowelGames.js",
   "src/letters/WaterGarden.js",
+  "src/letters/WordGames.js",
+  "src/letters/WordTree.js",
   "src/letters/WorkshopGames.js",
   "src/systems/ProgressionSystem.js",
   "styles/letters-activities.css",
@@ -73,11 +82,13 @@ const SHELL = [
   "styles/letters-landscape.css",
   "styles/letters-learning.css",
   "styles/letters-map-world.css",
+  "styles/letters-materials.css",
   "styles/letters-motion.css",
   "styles/letters-picnic.css",
   "styles/letters-pond.css",
   "styles/letters-potting.css",
   "styles/letters-rooms.css",
+  "styles/letters-toybox.css",
   "styles/letters-water.css",
   "styles/letters.css",
   "vendor/fonts/amiri-quran-400-arabic.woff2",
